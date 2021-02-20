@@ -1,1 +1,89 @@
 <!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+}
+
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #59A8D9;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 36px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #111111;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+h1 {
+	padding-left: 10px;
+    padding-bottom: 60px;
+    padding-top: 20px;
+    font-size: 37px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/* Header/Logo Title */
+.header {
+  padding: 1px;
+  text-align: center;
+  background: #F2C49B;
+  color: white;
+  font-size: 30px;
+}
+
+
+/* Page Content */
+.content {padding:20px;}
+</style>
+</head>
+<body>
+
+<div class="sidenav">
+  <h1>Planboard</h1>
+  <a href="#dashboard">Dashboard</a>
+  <a href="#calendar">Calendar</a>
+  <a href="#messages">Messages</a>
+  <a href="#resources">Resources</a>
+</div>
+
+<div class="header">
+  <div class="main">
+    <h2>[Title]</h2>
+    <p>[Content]</p>
+  </div>
+</div>
+
+
+
+
+   
+</body>
+</html> 
