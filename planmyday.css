@@ -1,0 +1,281 @@
+@import "compass/css3";
+
+// ============================================================
+// $Price Block Variables
+// ============================================================
+
+$width: 25%;
+$viewport-increment: 0.1px;
+$price-block-large: 740px;
+$collapsed-price-block: $price-block-large - $viewport-increment;
+$price-block-bg: #AAAAAA;
+$price-block-color: #EFEFEF;
+
+
+// ============================================================
+// $Globals
+// ============================================================
+
+*,
+:before,
+:after {
+  box-sizing: border-box;
+}
+
+html {
+  word-wrap: break-word;
+}
+
+html,
+
+body {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  height: 100%;
+}
+
+:before,
+:after {
+  content: "";
+  height: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+
+// ============================================================
+// $Container
+// ============================================================
+
+.wrapper {
+  overflow: auto;
+  height: 100%;
+  position: relative;
+}
+
+
+// ============================================================
+// $Price Block
+// ============================================================
+
+.price-block {
+  padding: 0 1rem; // 0 (16px/16px)
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  color: $price-block-color;
+
+  @media screen and (max-width: $collapsed-price-block) {
+    position: relative;
+  }
+
+  @media screen and (min-width: $price-block-large) {
+    float: left;
+  }
+
+  &:nth-child(1) {
+    background: $price-block-bg;
+    @media screen and (min-width: $price-block-large) {
+      width: $width;
+    }
+
+    &:before {
+      @media screen and (min-width: $price-block-large) {
+        left: 0;
+        width: $width;
+        background: $price-block-bg;
+      }
+    }
+  }
+
+  &:nth-child(2) {
+    background: $price-block-bg;
+    @media screen and (min-width: $price-block-large) {
+      width: $width;
+    }
+
+    &:before {
+      @media screen and (min-width: $price-block-large) {
+        left: $width;
+        width: $width;
+        background: $price-block-bg;
+      }
+    }
+  }
+
+  &:nth-child(3) {
+    background: $price-block-bg;
+
+    @media screen and (min-width: $price-block-large) {
+      width: $width;
+    }
+
+    &:before {
+      @media screen and (min-width: $price-block-large) {
+        left: $width * 2;
+        width: $width;
+        background: $price-block-bg;
+      }
+    }
+  }
+
+  &:nth-child(4) {
+    background: $price-block-bg;
+    @media screen and (min-width: $price-block-large) {
+      width: $width;
+    }
+
+    &:before {
+      @media screen and (min-width: $price-block-large) {
+        left: $width * 3;
+        width: $width;
+        background: $price-block-bg;
+      }
+    }
+  }
+}
+
+
+// ============================================================
+// $Price Block Header
+// ============================================================
+
+.price-block__title {
+  margin-top: 0;
+  margin-bottom: 1.25rem; // 20px / 16px
+  padding: 1.25rem 0 0; // (20px / 16px) 0 0
+  font-size: 1.25em; // 20px / 16px
+  font-weight: 700;
+  line-height: 1;
+}
+
+.price-block__cost {
+  font-weight: 300;
+  font-style: italic;
+}
+
+
+// ============================================================
+// $Price Block Button
+// ============================================================
+
+.price-block__btn {
+  appearance: none;
+  border: none;
+  margin: 0.625rem 0 0.3125rem; // (10px / 16px) 0 0 (5px / 16px)
+  width: 100%;
+  background: scale-lightness($price-block-bg, -25%);
+  color: #EFEFEF;
+  
+  &:hover {
+    background: scale-lightness($price-block-bg, -15%);
+  }
+}
+
+
+// ============================================================
+// $Price Block Info
+// ============================================================
+
+.price-block__info {
+  padding: 0 0 1.25rem; // 0 0 (20px / 16px)
+  @media screen and (max-width: $collapsed-price-block) {
+    height: 0;
+    visibility: hidden;
+  }
+
+  &.opened {
+    @media screen and (max-width: $collapsed-price-block) {
+      height: auto;
+      visibility: visible;
+    }
+  }
+}
+
+
+// ============================================================
+// $Price Block Trigger
+// ============================================================
+
+.price-block__trigger {
+  @media screen and (max-width: $collapsed-price-block) {
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    font-size: 1.5625em; // 25px / 16px
+    font-style: normal;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  @media screen and (min-width: $price-block-large) {
+    display: none;
+  }
+}
+
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #59A8D9;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 36px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #111111;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+  padding-left: 220px;
+}
+
+h1 {
+	padding-left: 10px;
+  padding-bottom: 60px;
+  padding-top: 20px;
+  font-size: 37px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/* Header/Logo Title */
+.header {
+  padding: 1px;
+  padding-left: 200px;
+  text-align: center;
+  background: #F28F6B;
+  color: white;
+  font-size: 22px;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Page Content */
+.content {padding:20px;}
