@@ -3,7 +3,6 @@
 }
 
 body {
- overflow: hidden;
  font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
  font-weight: 100;
  color: rgba(255, 255, 255, 1);
@@ -26,15 +25,6 @@ body {
   margin: 0 auto;
   height: 570px;
   overflow: hidden;
-}
-
-.header {
-  height: 50px;
-  width: 420px;
-  background: rgba(66, 66, 66, 1);
-  text-align: center;
-  position:relative;
-  z-index: 100;
 }
 
 .header h1 {
@@ -412,7 +402,7 @@ body {
 }
 
 .main {
-  margin-left: 200px; /* Same as the width of the sidenav */
+  margin-right: 800px; /* Same as the width of the sidenav */
   font-size: 28px; /* Increased text to enable scrolling */
   padding: 0px 10px;
 }
@@ -436,7 +426,7 @@ h1 {
   text-align: center;
   background: #F2C49B;
   color: white;
-  font-size: 30px;
+  font-size: 15px;
 }
 
 
@@ -469,3 +459,4 @@ h1 {
    
 </body>
 </html> 
+© 2021 GitHub, Inc.
