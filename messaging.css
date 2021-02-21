@@ -1,0 +1,541 @@
+body {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+}
+
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #59A8D9;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 36px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #111111;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-right: 800px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+h1 {
+	padding-left: 10px;
+    padding-bottom: 60px;
+    padding-top: 20px;
+    font-size: 37px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/* Header/Logo Title */
+.header {
+  padding: 1px;
+  padding-left: 200px;
+  text-align: center;
+  background: #F2C49B;
+  color: white;
+  font-size: 15px;
+}
+
+
+/* Page Content */
+.content {padding:20px;}
+</style>
+</head>
+<body>
+
+<div class="sidenav">
+  <h1>Planboard</h1>
+  <a href="#dashboard">Dashboard</a>
+  <a href="#calendar">Calendar</a>
+  <a href="#messages">Messages</a>
+  <a href="#resources">Resources</a>
+</div>
+
+<div class="header">
+  <h2>Calendar</h2>
+   <p>For scheduling your company, school, and personal events</p>
+</div>
+
+<div class="main">
+    <div id="calendar"></div>
+    <script src="calendar.js"></script>
+</div>
+
+
+
+   
+</body>
+</html> 
+
+// Colors :)  673ab7
+$purplematerial: #673ab7;
+$purplemain: #511F79;
+$purplesecond: #673E8C;
+$purpleactive: #714B94;
+$redish: #D65050;
+$greenish: #3EC649;
+$lightgrey: #F2EFF6;
+$darkgrey: #B5B5B5;
+ 
+ @keyframes fade-in-100-left {
+ 	0%   { transform: translateX(-100%); opacity: 0; }
+	100% { transform: translateX(0%); opacity: 1; }
+} 
+  @keyframes fade-in-100-right {
+ 	0%   { transform: translateX(100%); opacity: 0; }
+	100% { transform: translateX(0%); opacity: 1; }
+}  
+
+// body
+html{
+   height: 100%;
+  font-family: 'Roboto', sans-serif;
+  }
+
+body{
+  min-height: 100%;
+  display: flex ;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+  background-color: #DED7E2;
+}
+
+//center div content
+.content{
+  width: 70%;
+  height: 600px; 
+  background-color: white;
+  border-radius: 2px;
+  box-shadow: 0px 0px 40px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  
+}
+
+// sidebar inside content
+aside{
+  width: 25%;  
+  background-color: $purplemain;
+  display: flex;
+  flex-direction: column;
+  
+  
+  
+  .head{
+    min-height: 160px;
+    width: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    .avatar{
+      background-color: $redish;
+      color: white;
+      border-radius: 50%;
+      height: 60px;
+      width: 60px;
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .name, .mail{
+      margin: 3px 0px;
+       font-size: 14px;
+    }
+    .name{
+      font-weight: 700; 
+    }
+    .mail{
+      font-weight: 400; 
+      opacity: 0.8;
+    }
+  }
+  
+  //friend list on sidebar
+  .friends_list{
+   background-color: $purplesecond;
+   width: 100%; 
+    min-height: 600px;
+    overflow: auto; 
+    
+    .friend{
+      padding: 10px 5px;
+      display: flex;
+      flex-direction: row;
+      color: white;
+      justify-content: space-between;
+      &:hover{
+        background-color: $purpleactive; 
+      }
+      &.active{ background-color: $purpleactive;
+      .avatarbox{
+        position: relative;
+        &::before{ 
+          border: 2px solid $purpleactive;
+        }
+      }
+      
+      }
+      .avatarbox{
+        position: relative;
+        &::before{
+          content: "";
+          width: 12px;
+          height: 12px;
+          background-color: $greenish;
+          display:block;
+          position: absolute;
+          z-index: 99;
+          border-radius: 50%;
+          top: 5px;
+          left: 10px;
+          border: 2px solid $purplesecond;
+        }
+      }
+      .avatar_overlay{
+        width: 60px;
+        height: 60px;  
+        overflow: hidden;
+        border-radius: 50%;
+        margin: 0px 10px;
+        
+        img{ 
+           width: 100%;
+           min-height: 100%; 
+        }
+      }
+      .namemsg{
+        color: white; 
+        
+        width: 70%;
+        p{ line-height: 20px;}
+        .msg{ 
+          opacity: 0.6;
+          width: 60px;
+          white-space: nowrap;
+          overflow:hidden !important;
+          text-overflow: ellipsis;
+         
+        }    
+      } 
+      .timeago{
+        width: 20%;
+        font-size: 11px; 
+      }
+      
+      
+    }
+  }
+  
+} 
+
+.midcont{
+ width: 75%;  
+  min-height: 600px;
+  background-color: rgba(0,0,0,0.07);
+  display:flex;
+  flex-direction:column;
+  
+  .head{
+    padding: 20px;
+    display: block;
+    background-color: rgba(255,255,255,0.5);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    h4{ color: rgba(0,0,0,0.8);
+         font-weight: 700; 
+     
+    }
+    .configschat{
+          display: flex;
+          justify-content: space-between;
+          flex-direction: row;
+            margin-left: auto;
+      i{ font-size: 26px;
+         color: rgba(0,0,0,0.7);
+            padding: 10px 30px;
+          transition: transform 0.2s cubic-bezier(.72,.1,.33,1.99);
+        &:hover{
+          transform: scale(1.1);
+        }
+        
+        
+       &.fa.fa-phone:hover {
+    color: $greenish;
+        }
+        &.fa.fa-camera-retro:hover {
+    color: $purplematerial;
+        }
+        &.fa.fa-ellipsis-v:hover {
+    color: $darkgrey;
+        }
+      }
+    }
+  }
+  
+  .messagescont{
+    height:70%;
+    padding: 10px;
+    .msg{ 
+          display: flex;
+          flex-direction: row;
+          margin-top: 25px;
+          overflow: hidden;
+      .text {
+          background-color: white;
+          padding: 1em;
+          border-radius: 6px;
+          color: #737373;
+          position:relative;
+           line-height: 18px;
+          }
+    }
+    .user{
+      display:flex;
+      flex-direction: row;
+      width: 90%;
+      &.me{ margin-right: auto;
+            animation:  fade-in-100-left 1.5s 1s ease-in-out both; 
+        
+        .text{
+          
+           &::before{
+            content: ''; 
+            display: block;
+            border-style: solid;
+            border-width: 7.5px 12px 7.5px 0;
+            border-color: transparent #ffffff transparent  transparent;
+            position: absolute;
+            left: -11px;
+          }
+        }
+      }
+      &.friend{ margin-left: auto;
+            flex-direction:  row-reverse;
+        animation:  fade-in-100-right 1.5s 1.8s ease-in-out both; 
+        .text{
+          background-color: $purpleactive;
+          color: white;
+           &::before{
+            content: ''; 
+            display: block;
+            border-style: solid;
+            border-width:  7.5px 0 7.5px 12px;
+            border-color:  transparent  transparent transparent  $purpleactive;
+            position: absolute;
+            right: -11px;
+          }
+        }
+      }
+        .avatarbox .avatar_overlay {
+          width: 40px;
+          height: 40px;
+          overflow: hidden;
+          border-radius: 50%;
+          margin: 0px 10px;
+      }
+      .avatarbox{ 
+            display: block; 
+            margin-top: 15px;
+        padding: 0px 20px;
+        &::before{
+          content: "";
+          width: 0px;
+          height: 0px; 
+          border: 0px solid ;
+          //clear status on msgs.
+        }
+      }
+    }
+    
+  }
+  
+  .bottomchat{
+     padding: 20px;
+     background-color: white;
+     color: $darkgrey;
+     margin-top: auto;
+    *{ transition: all 0.2s ease-in-out;}
+    .text{ float:left; font-size: 14px;}
+    i{ float: right; &:hover{ opacity: 0.5; color: $greenish;}}
+  }
+}
+
+.fcenter{
+  align-items: center;
+   
+}
+.b{
+   font-weight: 700;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.avatarbox{
+        position: relative;
+        
+      }
+      
+       
+      .avatarbox{
+         
+        &::before{
+          content: "";
+          width: 12px;
+          height: 12px;
+          background-color: $greenish;
+          display:block;
+          position: absolute;
+          z-index: 99;
+          border-radius: 50%;
+          top: 5px;
+          left: 10px;
+          border: 2px solid rgba(255,255,255,0.8);
+        }
+      
+      .avatar_overlay{
+        width: 60px;
+        height: 60px;  
+        overflow: hidden;
+        border-radius: 50%;
+        margin: 0px 10px;
+        
+        img{ 
+           width: 100%;
+           min-height: 100%; 
+        }
+      }
+        
+ }
+
+
+
+
+@media screen and (max-width: 1000px) {
+  body{
+    height: auto;
+  }
+  .content{
+    flex-direction: column;
+    min-height: 600px;
+    max-width: 360px;
+    width: auto;
+    height: auto;
+  }
+  aside{ height: auto;
+        overflow: hidden;
+    .head{ flex-direction: row; min-height: 90px;
+       * { margin: 0px 10px !important;}
+      .mail{ font-size: 10px;}     
+    }
+    .friends_list{
+      transition: all 0.2s ease-in-out; 
+      min-height: 0px;
+                  &.ok{
+                    height:0px; 
+                    &.active{
+                    min-height: 210px; 
+                            }
+                      } 
+                }
+    
+  }
+  .midcont{ min-height: 600px;
+    .configschat i{
+       font-size: 18px !important;
+      }
+  }
+  aside,.midcont{ width: 100%;}
+}
+
+/* Let's get this party started */
+::-webkit-scrollbar {
+    width: 8px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.6);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.2); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background:     rgba(255, 255, 255, 0.2);
+}
+
+.float-left{ float:left;}
+.float-right{float:right;}
+
+.t{
+  transition: all 0.2s ease-in-out;
+}
+.emoji{
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-size:cover;
+  background-position: center;
+  background-repeat: no-repeat;
+      &.fish{
+
+      background-image: url("https://emojipedia-us.s3.amazonaws.com/cache/8d/a6/8da6396644dd88e1f4b690b2ec7933f0.png");
+
+    }
+   &.sushi{
+
+      background-image: url("https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/146/sushi_1f363.png");
+
+    }
+   &.ramem{
+
+      background-image: url("https://emojipedia-us.s3.amazonaws.com/cache/b6/d7/b6d781171f5e7f5b5fc723076a810e76.png");
+
+    }
+  
+}
+
+@media screen and (max-width: 500px) {
+  .content{
+     
+    max-width: 360px;
+    
+  }
+}
+
+
+
+
