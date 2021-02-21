@@ -89,16 +89,16 @@ h1 {
   height:100vh;
 }
 
-.todo{
+.todo li{
   padding-top:10px;
 }
-.todo ul li.checked{
+.todo li.checked{
   background: #888;
   color: #fff;
   text-decoration: line-through;
 }
 
-.todo ul li.checked::before{
+.todo li.checked::before{
   content: '';
   position: absolute;
   border-color: #fff;
@@ -175,7 +175,7 @@ h1 {
   <h2>Upcoming Due Dates</h2>
   <li>Hello World</li>
   <h2>New Messages</h2>
-  <a href=#messages> See New Messages</a>
+  <a href="#messages"> See New Messages</a>
 </div>
 
 
@@ -240,11 +240,6 @@ function newElement() {
   }
 }
 
-function myFunction() {
-  var d = new Date();
-  var n = d.getDate();
-  document.getElementById("demo").innerHTML = n;
-}
 </script>
 
 
