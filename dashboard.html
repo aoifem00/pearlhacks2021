@@ -89,6 +89,9 @@ h1 {
   height:100vh;
 }
 
+.todo{
+  padding-top:10px;
+}
 .todo ul li.checked{
   background: #888;
   color: #fff;
@@ -163,16 +166,16 @@ h1 {
 <div class="dashboard">
   <div id="myDIV" class="todo">
     <h2>To Do</h2>
-    <li> Hello World</li>
     <input type="text" id="myInput" placeholder="Add New Task">
     <span onclick="newElement()" class="addBtn">Add</span>
+    <li> Hello World</li>
   </div>
   <h2>Announcements</h2>
   <li>Hello World</li>
   <h2>Upcoming Due Dates</h2>
   <li>Hello World</li>
   <h2>New Messages</h2>
-  <li>Hello World</li>
+  <a href=#messages> See New Messages</a>
 </div>
 
 
@@ -212,9 +215,9 @@ list.addEventListener('click', function(ev) {
 // Create a new list item when clicking on the "Add" button
 function newElement() {
   var x = document.getElementById("myDIV");
-  var li = x.createElement("li");
-  var inputValue = x.getElementById("myInput").value;
-  var t = x.createTextNode(inputValue);
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
   li.appendChild(t);
   if (inputValue === '') {
     alert("You must write something!");
@@ -223,8 +226,8 @@ function newElement() {
   }
   document.getElementById("myInput").value = "";
 
-  var span = x.createElement("SPAN");
-  var txt = x.createTextNode("\u00D7");
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
   span.className = "close";
   span.appendChild(txt);
   li.appendChild(span);
@@ -235,6 +238,12 @@ function newElement() {
       div.style.display = "none";
     }
   }
+}
+
+function myFunction() {
+  var d = new Date();
+  var n = d.getDate();
+  document.getElementById("demo").innerHTML = n;
 }
 </script>
 
