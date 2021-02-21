@@ -1,102 +1,14 @@
-body {
-  font-family: "Lato", sans-serif;
-  margin: 0;
-}
-
-.sidenav {
-  height: 100%;
-  width: 200px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #59A8D9;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
-
-.sidenav a {
-  padding: 6px 8px 6px 36px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #111111;
-  display: block;
-}
-
-.sidenav a:hover {
-  color: #f1f1f1;
-}
-
-.main {
-  margin-right: 800px; /* Same as the width of the sidenav */
-  font-size: 28px; /* Increased text to enable scrolling */
-  padding: 0px 10px;
-}
-
-h1 {
-	padding-left: 10px;
-    padding-bottom: 60px;
-    padding-top: 20px;
-    font-size: 37px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-
-/* Header/Logo Title */
-.header {
-  padding: 1px;
-  padding-left: 200px;
-  text-align: center;
-  background: #F2C49B;
-  color: white;
-  font-size: 15px;
-}
-
-
-/* Page Content */
-.content {padding:20px;}
-</style>
-</head>
-<body>
-
-<div class="sidenav">
-  <h1>Planboard</h1>
-  <a href="#dashboard">Dashboard</a>
-  <a href="#calendar">Calendar</a>
-  <a href="#messages">Messages</a>
-  <a href="#resources">Resources</a>
-</div>
-
-<div class="header">
-  <h2>Calendar</h2>
-   <p>For scheduling your company, school, and personal events</p>
-</div>
-
-<div class="main">
-    <div id="calendar"></div>
-    <script src="calendar.js"></script>
-</div>
-
-
-
-   
-</body>
-</html> 
-
-// Colors :)  673ab7
-$purplematerial: #673ab7;
-$purplemain: #511F79;
-$purplesecond: #673E8C;
-$purpleactive: #714B94;
-$redish: #D65050;
+// Must have SCSS Preprocessor
+$purplematerial: #30618C;
+$purplemain: #30618C;
+$purplesecond: #59A8D9;
+$purpleactive: #5FB6D9;
+$redish: #F28F6B;
 $greenish: #3EC649;
 $lightgrey: #F2EFF6;
 $darkgrey: #B5B5B5;
- 
- @keyframes fade-in-100-left {
+
+@keyframes fade-in-100-left {
  	0%   { transform: translateX(-100%); opacity: 0; }
 	100% { transform: translateX(0%); opacity: 1; }
 } 
@@ -111,20 +23,19 @@ html{
   font-family: 'Roboto', sans-serif;
   }
 
-body{
+body {
+  font-family: "Lato", sans-serif;
+  margin: 0;
   min-height: 100%;
-  display: flex ;
-  flex-direction: column;
   align-items: center; 
   justify-content: center;
-  background-color: #DED7E2;
+  padding-left: 200px;
 }
 
 //center div content
 .content{
   width: 70%;
-  height: 600px; 
-  background-color: white;
+  height: 600px;
   border-radius: 2px;
   box-shadow: 0px 0px 40px rgba(0,0,0,0.25);
   display: flex;
@@ -435,7 +346,42 @@ aside{
  }
 
 
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #59A8D9;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
 
+.sidenav a {
+  padding: 6px 8px 6px 36px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #111111;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-right: 800px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+h1 {
+	padding-left: 10px;
+  padding-bottom: 60px;
+  padding-top: 20px;
+  font-size: 37px;
+}
 
 @media screen and (max-width: 1000px) {
   body{
@@ -536,6 +482,25 @@ aside{
   }
 }
 
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
 
+/* Header/Logo Title */
+.header {
+  padding: 1px;
+  text-align: center;
+  background: #F28F6B;
+  color: white;
+  font-size: 22px;
+}
 
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
+/* Page Content */
+.content {padding:20px;}
