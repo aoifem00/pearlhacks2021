@@ -58,29 +58,77 @@ h1 {
   color: white;
   font-size: 30px;
 }
-ul{
+
+.nav ul{
   list-style-type: none;
   margin: 0;
   padding: 0px 200px;
   overflow: hidden;
   background-color: #F28F6B;
 }
-li{
+.nav li{
   float: left;
+  display: inline;
 }
-
-li a {
+.nav li a {
   display: block;
   color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
-
-li a:hover {
+.nav li a:hover {
   background-color: #FF7F50;
 }
 
+.dashboard{
+  padding-left:220px;
+  padding-top:10px;
+  background-color: #CCCCCC;
+  width: 100vw;
+  height:100vh;
+}
+
+.todo ul li.checked{
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+
+.todo ul li.checked::before{
+  content: '';
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+
+.todo .close{
+  position: relative;
+  right: 0;
+  top: 0;
+  left: 5px;
+}
+
+.todo .close:hover{
+  color: white;
+}
+.addBtn {
+  background: #d9d9d9;
+  color: #555;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+}
+
+.addBtn:hover {
+  background-color: #bbb;
+}
 /* Page Content */
 .content {padding:20px;}
 </style>
@@ -102,12 +150,94 @@ li a:hover {
   </div>
 </div>
 
-<ul>
-  <li><a href="#dashboard">Dashboard</a><li>
-  <li><a href="#messaging">Messaging</a><li>
-  <li><a href="#calendar">Calendar</a><li>
-</ul>
+<div class="nav">
+  <ul>
+    <li><a href="#dashboard">Dashboard</a></li>
+    <li><a href="#messaging">Messaging</a></li>
+    <li><a href="#calendar">Calendar</a></li>
+  </ul>
+</div>
+
+
+<!--Add a "add task button"-->
+<div class="dashboard">
+  <div id="myDIV" class="todo">
+    <h2>To Do</h2>
+    <li> Hello World</li>
+    <input type="text" id="myInput" placeholder="Add New Task">
+    <span onclick="newElement()" class="addBtn">Add</span>
+  </div>
+  <h2>Announcements</h2>
+  <li>Hello World</li>
+  <h2>Upcoming Due Dates</h2>
+  <li>Hello World</li>
+  <h2>New Messages</h2>
+  <li>Hello World</li>
+</div>
+
+
+
+<script>
+// Create a "close" button and append it to each list item
+var x = document.getElementById("myDIV")
+var myNodelist = x.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+
+// Click on a close button to hide the current list item
+x=document.getElementById("myDIV");
+var close = x.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+// Add a "checked" symbol when clicking on a list item
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+// Create a new list item when clicking on the "Add" button
+function newElement() {
+  var x = document.getElementById("myDIV");
+  var li = x.createElement("li");
+  var inputValue = x.getElementById("myInput").value;
+  var t = x.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myDIV").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = x.createElement("SPAN");
+  var txt = x.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+</script>
+
 
 </body>
 </html>
-<!DOCTYPE html>
